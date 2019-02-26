@@ -26,10 +26,7 @@
            (subs name 0 (dec (count name))))))))
 
 (defn- version-scheme-fn [scheme]
-  (println "scheme is " scheme)
-  (let [res (ns-resolve (the-ns 'metav.metadata) (symbol (str "metav." scheme "/version")))]
-    (println "resolve is" res)
-    res))
+  (ns-resolve (the-ns 'metav.metadata) (symbol (str "metav." scheme "/version"))))
 
 (defn prefix
   "return the prefix used before the version in tag (not to be confused with the git prefix even if we deduce the tag prefix with the git prefix)"
